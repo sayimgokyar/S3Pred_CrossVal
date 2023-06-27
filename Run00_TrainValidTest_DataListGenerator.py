@@ -17,12 +17,12 @@ data_path = './data/'
 
 if __name__ == '__main__':
 
-    DATA_FOLDERS = list([folder for folder in listdir(data_path) if folder.startswith('Sub')])
-    random.shuffle(DATA_FOLDERS)        # Randomly shuffle the subject folders!
+    DATA_FOLDERS = list([folder for folder in listdir(data_path) if folder.startswith('Sub')]) #All data folders start with Sub...
+    random.shuffle(DATA_FOLDERS)        # Randomly shuffle the order of subject folders!
     
     nof_subjects = len(DATA_FOLDERS)    #This should return >10 for this work! (Since scans are going on, it is counting!)
-    nof_test_folders = round(nof_subjects/n_fold_crossvalidation)  #Number of test folders for a single-fold (should be >=2 for 5-fold cross-validation)
-    nof_valid_folders = nof_test_folders    #Number of validation folders for a single-fold! Number of folders for validation and test should be the same.
+    nof_test_folders = round(nof_subjects/n_fold_crossvalidation)  #Number of test folders for a single-fold (should be >=2 for 5-fold cross-validation, make sure it is integer!)
+    nof_valid_folders = nof_test_folders    #Number of validation folders for a single-fold! Number of folders for validation and test can be the same but change it if you prefer something else.
     nof_train_folders = nof_subjects - nof_valid_folders - nof_test_folders     # Remanining folders will be used for training for a given fold!
     
     # Generate Folder Lists for Train/Valid/Test for each Fold.
@@ -54,4 +54,5 @@ if __name__ == '__main__':
         del DATA_FOLDERS[:nof_test_folders]
     
     print('INFO: Data folders were assigned and lists generated at location: ', data_path)
+    # One drawback of the above method is the use of validation folders as the test folders for the next epoch. Since the initial folder list shuffled at the beginning, this may be ok. If you are not comfortable with this split, you may use different methods to randomize test and validation folders.
     
