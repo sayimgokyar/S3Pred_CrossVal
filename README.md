@@ -1,13 +1,14 @@
 # S3Pred_CrossVal
-Cross Validation codes and data for the Subject Specific SAR Prediction Study. 
+This work is published in Magnetic Resonance in Medicine: https://doi.org/10.1002/mrm.29797
+Definition of the reository: Cross Validation codes and data for the Subject Specific SAR Prediction Study. 
 
-Definitions added after the submitted manuscript is accepted for publication in Magnetic Resonance in Medicine (with submission ID: MRM-23-23728.R1), entitled as "Deep learning-based local SAR prediction using B1 maps and structural magnetic resonance images of the head for parallel transmission at 7T"
+Definitions were added after the manuscript entitled "Deep learning-based local SAR prediction using B1 maps and structural magnetic resonance images of the head for parallel transmission at 7T" was accepted for publication in Magnetic Resonance in Medicine.
 
 1- Data should be requested from the Corresponding Author of the publication (i.e., ). A Material Transfer Agreement of USC should be signed between the USC and asking parties to share the data.
 
 2- Once you obtained the data folders use (or modify) the following files:
 
-2.1. Run00_TrainValidTest_DataListGenerator.py: This scans the number of subject folders and creates an n-fold cross validation file lists for training/validation and testing. Default setting is five. You may modify the code for your needs or use your own code.
+2.1. Run00_TrainValidTest_DataListGenerator.py: This code creates an n-fold cross validation file lists for training/validation and testing. Default setting is five fold. You may modify the code for your needs or use your own code.
 
 2.2. Once the train/valid/test splits created in "./data/" directory, you can use the "/Train_3D_CrossValid.py" file for n-fold cross validation of 7 different network architectures. Modify the code accordingly! 
 
